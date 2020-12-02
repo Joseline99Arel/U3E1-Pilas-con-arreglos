@@ -1,0 +1,63 @@
+package Joseline;
+
+import java.util.Scanner;
+
+public class Pila {
+    
+    public static void main (String []args){
+        
+    Scanner entrada = new Scanner (System.in);
+    
+    int [] Arreglo = new int [5];
+    int a=1,Respuesta=0, Numero, Posicion = 0;
+    
+    while(a==1){
+        System.out.println("Elije una Opcion");
+        System.out.println("1.- Insertar");
+        System.out.println("2.- Eliminar");
+        System.out.println("3.- Mostrar");
+        System.out.println("4.- Salir");
+        Respuesta=entrada.nextInt();
+            
+        if(Respuesta>0 && Respuesta<5){
+            switch(Respuesta){
+                case 1: 
+                if (Posicion <5){
+                    System.out.println("Por favor ingresa un dato");
+                    Numero = entrada.nextInt();
+                    Arreglo [Posicion] = Numero;
+                    Posicion++;
+                }
+                else{
+                           System.out.println("Ya no caben mas elementos en tu pila");
+                }
+                break;
+                case 2: 
+                if (Posicion==0){
+                System.out.println("No hay elemntos en tu pila");
+                }
+                else{
+                System.out.println("Se ha eliminado un elemento de la pila");
+                Arreglo [Posicion-1] = 0;
+                }
+                break;
+                case 3: 
+                System.out.println("Mostrando Datos");
+                for (int j=Arreglo.length-1; j>=0; j--){
+                System.out.println(Arreglo[j]);
+                }
+                break;
+                case 4: 
+                System.exit(0);
+                break; 
+            }
+            System.out.println("Quieres repetir el proceso 1:Si 2:No");
+            a=entrada.nextInt();
+            }
+            else
+            {
+                System.out.println("El numero que ingresaste esta fuera de las opciones ");
+            }
+        }     
+    }
+}
